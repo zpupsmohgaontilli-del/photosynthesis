@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="वनस्पती रचना व प्रकाशसंश्लेषण - Interactive Plant Anatomy & Photosynthesis Simulator for Middle School Students.">
+  <meta name="description" content="वनस्पती रचना व प्रकाशसंश्लेषण - Interactive Plant Anatomy & Photosynthesis Simulator">
   <meta name="author" content="Vrushabh H. Borkar">
   
-  <!-- Open Graph Meta for WhatsApp / Social Previews -->
-  <meta property="og:title" content="सजीव वनस्पती रचना व प्रकाशसंश्लेषण (Plant Anatomy Visualizer)">
+  <meta property="og:title" content="वनस्पती रचना व प्रकाशसंश्लेषण (Plant Anatomy Visualizer)">
   <meta property="og:description" content="वर्ग ६ वी व ७ वी साठी परस्परसंवादी विज्ञान प्रात्यक्षिक - मूळ, खोड व पानाचे भाग समजून घ्या.">
   <meta property="og:type" content="website">
 
-  <title>सजीव वनस्पती रचना व प्रकाशसंश्लेषण (Plant Anatomy & Photosynthesis)</title>
+  <title>वनस्पती रचना व प्रकाशसंश्लेषण (Plant Anatomy & Photosynthesis)</title>
   
-  <!-- CDN Script -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   
   <style>
@@ -47,18 +45,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: clamp(4px, 1vh, 12px) clamp(6px, 1vw, 14px);
+      padding: clamp(6px, 1vh, 12px) clamp(8px, 1.2vw, 16px);
     }
 
     .app-wrapper {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1200px;
       height: 100%;
       max-height: 100dvh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: clamp(3px, 0.6vh, 8px);
+      gap: clamp(4px, 0.7vh, 10px);
     }
 
     header {
@@ -66,22 +64,24 @@
       flex-shrink: 0;
     }
     header h1 {
-      font-size: clamp(1rem, 2vh, 1.5rem);
+      font-size: clamp(1.2rem, 2.4vh, 1.85rem);
+      font-weight: 800;
       background: linear-gradient(135deg, #4ade80, #38bdf8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1.15;
+      line-height: 1.2;
     }
     header p {
       color: #94a3b8;
-      font-size: clamp(0.65rem, 1.1vh, 0.78rem);
-      margin-top: 1px;
+      font-size: clamp(0.85rem, 1.35vh, 1rem);
+      margin-top: 2px;
+      font-weight: 600;
     }
 
     .main-container {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: clamp(6px, 1vw, 14px);
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(8px, 1.2vw, 16px);
       flex: 1 1 auto;
       min-height: 0;
     }
@@ -89,15 +89,15 @@
     @media (max-width: 768px) {
       .main-container {
         grid-template-columns: 1fr;
-        grid-template-rows: 1.1fr 0.9fr;
+        grid-template-rows: 1.15fr 0.85fr;
       }
     }
 
     .box {
       background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: clamp(8px, 1.2vh, 12px);
-      padding: clamp(6px, 1vh, 10px);
+      border-radius: clamp(10px, 1.4vh, 14px);
+      padding: clamp(8px, 1.2vh, 14px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -105,14 +105,14 @@
     }
 
     .box-title {
-      font-size: clamp(0.74rem, 1.3vh, 0.9rem);
+      font-size: clamp(0.95rem, 1.6vh, 1.15rem);
       font-weight: 700;
       color: var(--yellow);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-shrink: 0;
-      margin-bottom: clamp(2px, 0.4vh, 4px);
+      margin-bottom: clamp(3px, 0.5vh, 6px);
     }
 
     /* Animated Canvas Stage */
@@ -121,7 +121,7 @@
       flex: 1 1 auto;
       min-height: 0;
       background: #070d1d;
-      border-radius: 8px;
+      border-radius: 10px;
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -175,22 +175,23 @@
 
     /* Explanation Card */
     .info-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px dashed var(--green);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px dashed var(--green);
       border-radius: 8px;
-      padding: clamp(5px, 0.7vh, 8px) clamp(8px, 1vw, 12px);
-      margin-top: clamp(3px, 0.5vh, 6px);
+      padding: clamp(6px, 1vh, 10px) clamp(10px, 1.2vw, 14px);
+      margin-top: clamp(4px, 0.6vh, 8px);
       flex-shrink: 0;
     }
     .info-card h4 {
       color: #38bdf8;
-      font-size: clamp(0.72rem, 1.15vh, 0.84rem);
-      margin-bottom: 2px;
+      font-size: clamp(0.9rem, 1.5vh, 1.1rem);
+      margin-bottom: 3px;
+      font-weight: 700;
     }
     .info-card p {
-      font-size: clamp(0.65rem, 1.05vh, 0.75rem);
-      color: #cbd5e1;
-      line-height: 1.25;
+      font-size: clamp(0.82rem, 1.35vh, 0.98rem);
+      color: #e2e8f0;
+      line-height: 1.35;
     }
 
     /* Sliders */
@@ -200,31 +201,31 @@
       justify-content: space-around;
       flex: 1 1 auto;
       min-height: 0;
-      gap: clamp(3px, 0.6vh, 6px);
+      gap: clamp(4px, 0.8vh, 8px);
     }
     .slider-row {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 3px;
     }
     .slider-label {
       display: flex;
       justify-content: space-between;
-      font-size: clamp(0.66rem, 1.1vh, 0.78rem);
-      font-weight: 600;
+      font-size: clamp(0.85rem, 1.45vh, 1.05rem);
+      font-weight: 700;
     }
     input[type="range"] {
       width: 100%;
-      height: clamp(5px, 0.7vh, 7px);
-      border-radius: 4px;
+      height: clamp(6px, 0.9vh, 9px);
+      border-radius: 5px;
       background: #334155;
       outline: none;
       -webkit-appearance: none;
     }
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: clamp(14px, 1.8vh, 16px);
-      height: clamp(14px, 1.8vh, 16px);
+      width: clamp(16px, 2.2vh, 20px);
+      height: clamp(16px, 2.2vh, 20px);
       border-radius: 50%;
       background: var(--yellow);
       cursor: pointer;
@@ -232,25 +233,25 @@
 
     /* Cooking Result Status */
     .result-box {
-      background: rgba(34, 197, 94, 0.08);
-      border: 1px solid var(--green);
+      background: rgba(34, 197, 94, 0.1);
+      border: 1.5px solid var(--green);
       border-radius: 8px;
-      padding: clamp(4px, 0.7vh, 6px);
+      padding: clamp(6px, 0.9vh, 10px);
       text-align: center;
       flex-shrink: 0;
     }
     .status-text {
-      font-size: clamp(0.74rem, 1.2vh, 0.9rem);
-      font-weight: bold;
-      margin-bottom: 2px;
+      font-size: clamp(0.95rem, 1.6vh, 1.15rem);
+      font-weight: 800;
+      margin-bottom: 4px;
     }
     .meter-bg {
       width: 100%;
-      height: clamp(7px, 1vh, 10px);
+      height: clamp(9px, 1.3vh, 13px);
       background: #334155;
-      border-radius: 5px;
+      border-radius: 7px;
       overflow: hidden;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
     }
     .meter-fill {
       height: 100%;
@@ -259,23 +260,23 @@
       transition: width 0.3s;
     }
     .easy-formula {
-      font-size: clamp(0.62rem, 0.95vh, 0.72rem);
+      font-size: clamp(0.8rem, 1.3vh, 0.95rem);
       background: #070d1d;
-      padding: clamp(2px, 0.4vh, 4px);
-      border-radius: 4px;
+      padding: clamp(4px, 0.6vh, 6px);
+      border-radius: 6px;
       color: #86efac;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      font-size: clamp(0.6rem, 1vh, 0.74rem);
-      color: rgba(255, 255, 255, 0.8);
+      font-size: clamp(0.75rem, 1.25vh, 0.9rem);
+      color: rgba(255, 255, 255, 0.85);
       border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: clamp(2px, 0.4vh, 4px);
+      padding-top: clamp(3px, 0.5vh, 6px);
       flex-shrink: 0;
-      line-height: 1.2;
+      line-height: 1.25;
     }
     footer strong {
       color: #ffffff;
@@ -291,11 +292,11 @@
   </header>
 
   <div class="main-container">
-    <!-- Left Side: Live Animated SVG Canvas showing Root, Stem & Leaf Anatomy -->
+    <!-- Left Side: Live Animated SVG Canvas -->
     <div class="box">
       <div class="box-title">
         <span>🔬 वनस्पतीचे मुख्य अवयव (भागावर स्पर्श करा)</span>
-        <span id="plant-face" style="font-size: clamp(0.95rem, 1.8vh, 1.2rem);">😊</span>
+        <span id="plant-face" style="font-size: clamp(1.2rem, 2.2vh, 1.5rem);">😊</span>
       </div>
       
       <div class="animation-stage">
@@ -315,7 +316,7 @@
           <!-- Soil / Ground Level -->
           <rect x="0" y="215" width="160" height="55" fill="#451a03" opacity="0.75" />
           <line x1="0" y1="215" x2="160" y2="215" stroke="#78350f" stroke-width="2" stroke-dasharray="4,3" />
-          <text x="6" y="228" fill="#d97706" font-size="8" font-weight="bold">माती (Soil)</text>
+          <text x="6" y="230" fill="#d97706" font-size="10" font-weight="bold">माती (Soil)</text>
 
           <!-- Sunlight Cone -->
           <polygon id="sun-beam" class="sun-beam-anim" points="0,0 80,0 230,95 150,95" fill="url(#sunGrad)" />
@@ -332,61 +333,59 @@
             <path class="water-flow-line" d="M 50 265 Q 55 240 60 215" stroke="#38bdf8" stroke-width="3" fill="none" />
             <path class="water-flow-line" d="M 15 255 Q 30 245 55 230" stroke="#38bdf8" stroke-width="2" fill="none" />
 
-            <text x="68" y="252" fill="#fde68a" font-size="10" font-weight="bold">१. मूळ (Root) 💧</text>
+            <text x="62" y="252" fill="#fde68a" font-size="12" font-weight="bold">१. मूळ (Root) 💧</text>
           </g>
 
           <!-- 2. STEM (खोड) -->
           <g class="clickable-part" onclick="showPart('stem')">
             <path d="M 60 215 Q 60 170 85 110" stroke="#78350f" stroke-width="9" fill="none" stroke-linecap="round" />
-            <!-- Animated Water Line in Stem -->
             <path id="water-pipe-line" class="water-flow-line" d="M 60 215 Q 60 170 85 110" stroke="#38bdf8" stroke-width="4" fill="none" />
-            <text x="12" y="165" fill="#fde68a" font-size="10" font-weight="bold">२. खोड (Stem) 🪵</text>
+            <text x="6" y="165" fill="#fde68a" font-size="12" font-weight="bold">२. खोड (Stem) 🪵</text>
           </g>
 
-          <!-- 3. LEAF BODY & MAIN VEIN (पान व जलवाहिनी) -->
+          <!-- 3. LEAF BODY & MAIN VEIN -->
           <g class="leaf-body">
             <path d="M 80 110 C 140 15, 290 25, 360 110 C 290 195, 140 205, 80 110 Z" 
                   fill="url(#leafGrad)" stroke="#4ade80" stroke-width="3" />
-            <!-- Main Vein -->
             <path id="main-vein-flow" class="water-flow-line" d="M 80 110 Q 220 110 360 110" stroke="#86efac" stroke-width="3" fill="none" />
           </g>
 
           <!-- Dynamic Output Particles -->
           <g id="output-particles">
             <g class="bubble-out" style="transform-origin: 230px 75px; animation-duration: 2.2s;">
-              <circle cx="230" cy="75" r="6" fill="#38bdf8" opacity="0.8" />
-              <text x="224" y="78" fill="#fff" font-size="8" font-weight="bold">O₂</text>
+              <circle cx="230" cy="75" r="7" fill="#38bdf8" opacity="0.85" />
+              <text x="223" y="79" fill="#fff" font-size="9" font-weight="bold">O₂</text>
             </g>
             <g class="bubble-out" style="transform-origin: 270px 95px; animation-duration: 1.8s; animation-delay: 0.6s;">
-              <circle cx="270" cy="95" r="7" fill="#facc15" opacity="0.9" />
-              <text x="267" y="98" fill="#000" font-size="8" font-weight="bold">✨</text>
+              <circle cx="270" cy="95" r="8" fill="#facc15" opacity="0.95" />
+              <text x="266" y="99" fill="#000" font-size="10" font-weight="bold">✨</text>
             </g>
             <g class="bubble-out" style="transform-origin: 190px 125px; animation-duration: 2.5s; animation-delay: 1s;">
-              <circle cx="190" cy="125" r="6" fill="#38bdf8" opacity="0.8" />
-              <text x="184" y="128" fill="#fff" font-size="8" font-weight="bold">O₂</text>
+              <circle cx="190" cy="125" r="7" fill="#38bdf8" opacity="0.85" />
+              <text x="183" y="129" fill="#fff" font-size="9" font-weight="bold">O₂</text>
             </g>
           </g>
 
           <!-- 4. Interactive Chloroplast -->
           <g class="clickable-part" onclick="showPart('chef')">
-            <ellipse cx="170" cy="85" rx="28" ry="16" fill="#15803d" stroke="#facc15" stroke-width="2" />
-            <circle cx="160" cy="85" r="3" fill="#fef08a" />
-            <circle cx="171" cy="82" r="3" fill="#fef08a" />
-            <circle cx="180" cy="86" r="3" fill="#fef08a" />
-            <text x="145" y="62" fill="#fff" font-size="9.5" font-weight="bold">३. हरितलवक 👨‍🍳</text>
+            <ellipse cx="170" cy="85" rx="30" ry="17" fill="#15803d" stroke="#facc15" stroke-width="2" />
+            <circle cx="158" cy="85" r="3.5" fill="#fef08a" />
+            <circle cx="170" cy="82" r="3.5" fill="#fef08a" />
+            <circle cx="180" cy="86" r="3.5" fill="#fef08a" />
+            <text x="140" y="60" fill="#fff" font-size="11.5" font-weight="bold">३. हरितलवक 👨‍🍳</text>
           </g>
 
           <!-- 5. Interactive Stoma -->
           <g class="clickable-part" onclick="showPart('window')">
-            <ellipse cx="280" cy="140" rx="9" ry="14" fill="#84cc16" stroke="#d9f99d" stroke-width="1.5" />
-            <ellipse id="stoma-gap" cx="280" cy="140" rx="3" ry="9" fill="#070d1d" />
-            <text x="252" y="170" fill="#fff" font-size="9.5" font-weight="bold">४. पर्णरंध्र 🪟</text>
+            <ellipse cx="280" cy="140" rx="10" ry="15" fill="#84cc16" stroke="#d9f99d" stroke-width="1.5" />
+            <ellipse id="stoma-gap" cx="280" cy="140" rx="3.5" ry="9" fill="#070d1d" />
+            <text x="245" y="172" fill="#fff" font-size="11.5" font-weight="bold">४. पर्णरंध्र 🪟</text>
           </g>
 
           <!-- 6. Interactive Vein -->
           <g class="clickable-part" onclick="showPart('pipe')">
-            <circle cx="295" cy="95" r="13" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
-            <text x="270" y="75" fill="#fff" font-size="9.5" font-weight="bold">५. जलवाहिनी 🚰</text>
+            <circle cx="295" cy="95" r="14" fill="#0284c7" stroke="#38bdf8" stroke-width="2" />
+            <text x="264" y="73" fill="#fff" font-size="11.5" font-weight="bold">५. जलवाहिनी 🚰</text>
           </g>
         </svg>
       </div>
